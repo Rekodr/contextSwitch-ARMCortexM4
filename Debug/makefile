@@ -10,7 +10,11 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
+"./Systick.obj" \
+"./core.obj" \
+"./kernel.obj" \
 "./main.obj" \
+"./myThreads.obj" \
 "./startup_msp432p401r_ccs.obj" \
 "./system_msp432p401r.obj" \
 "../driverlib_empty_project_ccs.cmd" \
@@ -123,34 +127,34 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-contxtSwitch.out \
+contextSwitching.out \
 
 EXE_OUTPUTS__QUOTED += \
-"contxtSwitch.out" \
+"contextSwitching.out" \
 
 BIN_OUTPUTS += \
-contxtSwitch.bin \
+contextSwitching.bin \
 
 BIN_OUTPUTS__QUOTED += \
-"contxtSwitch.bin" \
+"contextSwitching.bin" \
 
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "contxtSwitch.out"
+	@$(MAKE) --no-print-directory -Onone "contextSwitching.out"
 
 # Tool invocations
-contxtSwitch.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
+contextSwitching.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP432 Linker'
-	"D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --advice:power=all --define=__MSP432P401R__ --define=TARGET_IS_MSP432P4XX --define=ccs -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number -z -m"contxtSwitch.map" --stack_size=512 -i"D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/lib" -i"D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="contxtSwitch_linkInfo.xml" --rom_model -o "contxtSwitch.out" $(ORDERED_OBJS)
+	"D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --advice:power=all --define=__MSP432P401R__ --define=TARGET_IS_MSP432P4XX --define=ccs -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number -z -m"contextSwitching.map" --stack_size=512 -i"D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/lib" -i"D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="contextSwitching_linkInfo.xml" --rom_model -o "contextSwitching.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	@$(MAKE) --no-print-directory post-build
 
-contxtSwitch.bin: $(EXE_OUTPUTS)
+contextSwitching.bin: $(EXE_OUTPUTS)
 	@echo 'Invoking: MSP432 Hex Utility'
-	"D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/bin/armhex"  -o "contxtSwitch.bin" $(EXE_OUTPUTS__QUOTED)
+	"D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/bin/armhex"  -o "contextSwitching.bin" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 	@$(MAKE) --no-print-directory post-build
@@ -158,13 +162,13 @@ contxtSwitch.bin: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" 
-	-$(RM) "main.d" "startup_msp432p401r_ccs.d" "system_msp432p401r.d" 
+	-$(RM) "Systick.obj" "core.obj" "kernel.obj" "main.obj" "myThreads.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" 
+	-$(RM) "Systick.d" "core.d" "kernel.d" "main.d" "myThreads.d" "startup_msp432p401r_ccs.d" "system_msp432p401r.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
 post-build:
-	-D:/ti/ccsv7/utils/tiobj2bin/tiobj2bin contxtSwitch.out contxtSwitch.bin D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/bin/armofd D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/bin/armhex D:/ti/ccsv7/utils/tiobj2bin/mkhex4bin
+	-D:/ti/ccsv7/utils/tiobj2bin/tiobj2bin contextSwitching.out contextSwitching.bin D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/bin/armofd D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/bin/armhex D:/ti/ccsv7/utils/tiobj2bin/mkhex4bin
 	-@echo ' '
 
 .PHONY: all clean dependents

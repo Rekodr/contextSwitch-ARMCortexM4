@@ -1,17 +1,17 @@
 /*
+ * @Author: Recodeo Rekod
+ * @Description
+ */
 
-/* DriverLib Includes */
 #include "driverlib.h"
-
-/* Standard Includes */
-#include <stdint.h>
-#include <stdbool.h>
+#include "kernel.h"
 
 int main(void)
 {
     /* Stop Watchdog  */
     MAP_WDT_A_holdTimer();
 
+    initKernel();
     while(1)
     {
         

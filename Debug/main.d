@@ -41,6 +41,9 @@ main.obj: C:/ti/msp/MSP432Ware_3_50_00_02/driverlib/driverlib/MSP432P4xx/timer32
 main.obj: C:/ti/msp/MSP432Ware_3_50_00_02/driverlib/driverlib/MSP432P4xx/timer_a.h
 main.obj: C:/ti/msp/MSP432Ware_3_50_00_02/driverlib/driverlib/MSP432P4xx/uart.h
 main.obj: C:/ti/msp/MSP432Ware_3_50_00_02/driverlib/driverlib/MSP432P4xx/wdt_a.h
+main.obj: ../kernel.h
+main.obj: D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/include/stdlib.h
+main.obj: D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/include/linkage.h
 
 ../main.c: 
 C:/ti/msp/MSP432Ware_3_50_00_02/driverlib/driverlib/MSP432P4xx/driverlib.h: 
@@ -83,3 +86,6 @@ C:/ti/msp/MSP432Ware_3_50_00_02/driverlib/driverlib/MSP432P4xx/timer32.h:
 C:/ti/msp/MSP432Ware_3_50_00_02/driverlib/driverlib/MSP432P4xx/timer_a.h: 
 C:/ti/msp/MSP432Ware_3_50_00_02/driverlib/driverlib/MSP432P4xx/uart.h: 
 C:/ti/msp/MSP432Ware_3_50_00_02/driverlib/driverlib/MSP432P4xx/wdt_a.h: 
+../kernel.h: 
+D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/include/stdlib.h: 
+D:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/include/linkage.h: 

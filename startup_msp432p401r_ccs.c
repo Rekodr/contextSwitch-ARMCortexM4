@@ -54,9 +54,9 @@ extern void SystemInit(void);
 extern unsigned long __STACK_END;
 
 
-/* External declarations for the interrupt handlers used by the application. */
 
-/* To be added by user */
+/* External declarations for the interrupt handlers used by the application. */
+extern void taskSelect();
 
 
 /* Interrupt vector table.  Note that the proper constructs must be placed on this to  */
@@ -82,7 +82,7 @@ void (* const interruptVectors[])(void) =
     defaultISR,                             /* Debug monitor handler     */
     0,                                      /* Reserved                  */
     defaultISR,                             /* The PendSV handler        */
-    defaultISR,                             /* The SysTick handler       */
+    taskSelect,                             /* The SysTick handler       */
     defaultISR,                             /* PSS ISR                   */
     defaultISR,                             /* CS ISR                    */
     defaultISR,                             /* PCM ISR                   */
